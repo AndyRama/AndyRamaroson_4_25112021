@@ -55,17 +55,27 @@
         <div class="content">
           <span class="close" id="closemodal"></span>
           <div class="modal-body">
+            
+            <!-- form field -->
             <form name="reserve" action="index.html" method="get" id="form-modal">
               <!-- remove onsubmit="return validate(event)" and add id form-modal -->
+
+              <!-- input firstname -->
               <div class="formData">
                 <label>Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="2"/><br>
               </div>
               <span class="errorFirst"></span>
+              <!-- add error for firstname -->
+
+              <!-- input Lastname -->
               <div class="formData">
                 <label>Nom</label><br>
                 <input class="text-control" type="text" id="last" name="last"/><br>
               </div>
+              <span class="errorLast"></span>
+              <!-- add error for  lastname -->
+
               <div class="formData">
                 <label>E-mail</label><br>
                 <input class="text-control" type="email" id="email" name="email"/><br>
