@@ -53,7 +53,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" id="closemodal"></span>
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get" id="form-modal">
               <!-- remove onsubmit="return validate(event)" and add id form-modal -->
@@ -61,6 +61,7 @@
                 <label>Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="2"/><br>
               </div>
+              <span class="errorFirst"></span>
               <div class="formData">
                 <label>Nom</label><br>
                 <input class="text-control" type="text" id="last" name="last"/><br>
