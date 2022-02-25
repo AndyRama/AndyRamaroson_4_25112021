@@ -30,17 +30,21 @@ const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
+const quantity = document.getElementById("quantity");
 
 const errorFirst = document.querySelector(".errorFirst");
 const errorLast = document.querySelector(".errorLast");
 const errorEmail = document.querySelector(".errorEmail");
 const errorDate = document.querySelector(".errorDate");
+const errorQuantity = document.querySelector(".errorQuantity");
+
 
 function resetError() {
   errorFirst.innerHTML = "";
   errorLast.innerHTML = "";
   errorEmail.innerHTML = "";
   errorDate.innerHTML = "";
+  errorQuantity.innerHTML = "";
 }
 
 //Check validation for firstname[nb letters] > 2
@@ -69,12 +73,21 @@ function checkEmail(value) {
   )
 };
 
-//Check validation Birthdate
+//Check validation for Birthdate
 function checkBirthDate(value) {
   if(value && value.length > 2) {
   return true ;
   } else {
     return false;
+  }
+}
+
+//Check validation for quantity
+function checkQuantity(value) {
+  if(isNaN(value)|| value.length == 0) {
+    return false;
+  } else {
+    return true;
   }
 }
 
@@ -120,5 +133,15 @@ formModal.addEventListener("submit", event => {
     errorDate.innerHTML = "Votre date est valide.";
     errorDate.style.color = "green";
     errorDate.style.fontSize = "0.8rem";
+  }
+
+  if(!checkQuantity(quantity.value)) {
+    errorQuantity.innerHTML = "Veuillez saisir un nombre.";
+    errorQuantity.style.color = "red";
+    errorQuantity.style.fontSize = "0.8rem";
+  } else {
+    errorQuantity.innerHTML = "Votre nombre est correct.";
+    errorQuantity.style.color = "green";
+    errorQuantity.style.fontSize = "0.8rem";
   }
 });
