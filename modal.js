@@ -29,15 +29,18 @@ const formModal = document.getElementById("form-modal");
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
+const birthdate = document.getElementById("birthdate");
 
 const errorFirst = document.querySelector(".errorFirst");
 const errorLast = document.querySelector(".errorLast");
 const errorEmail = document.querySelector(".errorEmail");
+const errorDate = document.querySelector(".errorDate");
 
 function resetError() {
   errorFirst.innerHTML = "";
   errorLast.innerHTML = "";
   errorEmail.innerHTML = "";
+  errorDate.innerHTML = "";
 }
 
 //Check validation for firstname[nb letters] > 2
@@ -65,6 +68,15 @@ function checkEmail(value) {
   .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   )
 };
+
+//Check validation Birthdate
+function checkBirthDate(value) {
+  if(value && value.length > 2) {
+  return true ;
+  } else {
+    return false;
+  }
+}
 
 //listen activity for form
 formModal.addEventListener("submit", event => {
@@ -98,5 +110,15 @@ formModal.addEventListener("submit", event => {
     errorEmail.innerHTML = "Votre email est bien accepté.";
     errorEmail.style.color = "green";
     errorEmail.style.fontSize = "0.8rem";
+  }
+
+  if(!checkBirthDate(birthdate.value)) {
+    errorDate.innerHTML = "Veuillez saisir votre date de naissance.";
+    errorDate.style.color = "red";
+    errorDate.style.fontSize = "0.8rem";
+  } else {
+    errorDate.innerHTML = "Votre date est valide.";
+    errorDate.style.color = "green";
+    errorDate.style.fontSize = "0.8rem";
   }
 });
