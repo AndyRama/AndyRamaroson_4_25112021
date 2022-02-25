@@ -28,13 +28,16 @@ const formModal = document.getElementById("form-modal");
 
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
+const email = document.getElementById("email");
 
 const errorFirst = document.querySelector(".errorFirst");
 const errorLast = document.querySelector(".errorLast");
+const errorEmail = document.querySelector(".errorEmail");
 
 function resetError() {
   errorFirst.innerHTML = "";
   errorLast.innerHTML = "";
+  errorEmail.innerHTML = "";
 }
 
 //Check validation for firstname[nb letters] > 2
@@ -54,6 +57,14 @@ function checkLastName(value) {
     return false;
   }
 }
+
+//Check validation for Email [patern regex]
+function checkEmail(value) {
+  return String(value)
+  .toLowerCase()
+  .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  )
+};
 
 //listen activity for form
 formModal.addEventListener("submit", event => {
@@ -77,5 +88,15 @@ formModal.addEventListener("submit", event => {
     errorLast.innerHTML = "Votre nom est valide.";
     errorLast.style.color = "green";
     errorLast.style.fontSize = "0.8rem";
+  }
+
+  if(!checkEmail(email.value)) {
+    errorEmail.innerHTML = "Veuillez saisir une adresse mail valide.";
+    errorEmail.style.color = "red";
+    errorEmail.style.fontSize = "0.8rem";
+  } else {
+    errorEmail.innerHTML = "Votre email est bien accepté.";
+    errorEmail.style.color = "green";
+    errorEmail.style.fontSize = "0.8rem";
   }
 });
