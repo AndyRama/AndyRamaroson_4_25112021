@@ -32,11 +32,14 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 
+const city = document.getElementsByName("location")
+
 const errorFirst = document.querySelector(".errorFirst");
 const errorLast = document.querySelector(".errorLast");
 const errorEmail = document.querySelector(".errorEmail");
 const errorDate = document.querySelector(".errorDate");
 const errorQuantity = document.querySelector(".errorQuantity");
+const errorCity = document.querySelector(".errorCity");
 
 
 function resetError() {
@@ -45,6 +48,7 @@ function resetError() {
   errorEmail.innerHTML = "";
   errorDate.innerHTML = "";
   errorQuantity.innerHTML = "";
+  errorCity.innerHTML = "";
 }
 
 //Check validation for firstname[nb letters] > 2
@@ -91,6 +95,18 @@ function checkQuantity(value) {
   }
 }
 
+//Check validation for city 
+function checkCity(elements) {
+  let checked = false;
+  for (let i = 0; i < elements.length; i++) {
+    if(elements[i].checked) {
+      checked = true;
+    }
+  }
+  return checked;
+}
+
+
 //listen activity for form
 formModal.addEventListener("submit", event => {
   event.preventDefault();
@@ -120,7 +136,7 @@ formModal.addEventListener("submit", event => {
     errorEmail.style.color = "red";
     errorEmail.style.fontSize = "0.8rem";
   } else {
-    errorEmail.innerHTML = "Votre email est bien accepté.";
+    errorEmail.innerHTML = "Email est bien accepté.";
     errorEmail.style.color = "green";
     errorEmail.style.fontSize = "0.8rem";
   }
@@ -130,7 +146,7 @@ formModal.addEventListener("submit", event => {
     errorDate.style.color = "red";
     errorDate.style.fontSize = "0.8rem";
   } else {
-    errorDate.innerHTML = "Votre date est valide.";
+    errorDate.innerHTML = "Date saisi est validé.";
     errorDate.style.color = "green";
     errorDate.style.fontSize = "0.8rem";
   }
@@ -140,8 +156,18 @@ formModal.addEventListener("submit", event => {
     errorQuantity.style.color = "red";
     errorQuantity.style.fontSize = "0.8rem";
   } else {
-    errorQuantity.innerHTML = "Votre nombre est correct.";
+    errorQuantity.innerHTML = "Le nombre est correct.";
     errorQuantity.style.color = "green";
     errorQuantity.style.fontSize = "0.8rem";
+  }
+
+  if(!checkCity(city)) {
+    errorCity.innerHTML = "Veuillez selectionner une ville.";
+    errorCity.style.color = "red";
+    errorCity.style.fontSize = "0.8rem";
+  } else {
+    errorCity.innerHTML = "Votre ville est correct.";
+    errorCity.style.color = "green";
+    errorCity.style.fontSize = "0.8rem";
   }
 });
