@@ -55,7 +55,7 @@ function resetError() {
 }
 
 //Check validation for firstname[nb letters] > 2
-function checkFirstName(value) {
+function checkFirstName(value, errorFirst) {
   if(value && value.length > 2) {
     errorFirst.innerHTML = "Votre prénom est valide.";
     errorFirst.style.color = "green";
@@ -70,7 +70,7 @@ function checkFirstName(value) {
 }
 
 //Check validation for Lastname[nb letters] > 2
-function checkLastName(value) {
+function checkLastName(value, errorLast) {
   if(value && value.length > 2) {
     errorLast.innerHTML = "Votre nom est valide.";
     errorLast.style.color = "green";
@@ -102,7 +102,7 @@ function checkEmail(email, errorEmail){
 }
 
 //Check validation for Birthdate
-function checkBirthDate(value) {
+function checkBirthDate(value,errorDate) {
   if(value && value.length > 2) {
     errorDate.innerHTML = "Date saisi est validé.";
     errorDate.style.color = "green";
@@ -117,7 +117,7 @@ function checkBirthDate(value) {
 }
 
 //Check validation for quantity
-function checkQuantity(value) {
+function checkQuantity(value, errorQuantity) {
   if(isNaN(value)|| value.length == 0) {
     errorQuantity.innerHTML = "Veuillez saisir un nombre.";
     errorQuantity.style.color = "red";
@@ -132,7 +132,7 @@ function checkQuantity(value) {
 }
 
 //Check validation for city 
-function checkCity(elements) {
+function checkCity(elements, errorCity) {
   let checked = false;
   for (let i = 0; i < elements.length; i++) {
     if(elements[i].checked) {
@@ -151,7 +151,7 @@ function checkCity(elements) {
 }
 
 //Check validation cgu
-function okCheckbox(element) {
+function okCheckbox(element, errorCgu) {
     if(!element.checked) {
       errorCgu.innerHTML = "Veuillez accepter les thermes du contrat ";
       errorCgu.style.color = "red";
