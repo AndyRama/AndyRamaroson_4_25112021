@@ -57,8 +57,14 @@ function resetError() {
 //Check validation for firstname[nb letters] > 2
 function checkFirstName(value) {
   if(value && value.length > 2) {
+    errorFirst.innerHTML = "Votre prénom est valide.";
+    errorFirst.style.color = "green";
+    errorFirst.style.fontSize = "0.8rem";
     return true;
-  }else {
+  } else {
+    errorFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
+    errorFirst.style.color = "red";
+    errorFirst.style.fontSize = "0.8rem";
     return false;
   }
 }
@@ -66,8 +72,14 @@ function checkFirstName(value) {
 //Check validation for Lastname[nb letters] > 2
 function checkLastName(value) {
   if(value && value.length > 2) {
+    errorLast.innerHTML = "Votre nom est valide.";
+    errorLast.style.color = "green";
+    errorLast.style.fontSize = "0.8rem";
     return true;
-  }else {
+  } else {
+    errorLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
+    errorLast.style.color = "red";
+    errorLast.style.fontSize = "0.8rem";
     return false;
   }
 }
@@ -83,8 +95,14 @@ function checkEmail(value) {
 //Check validation for Birthdate
 function checkBirthDate(value) {
   if(value && value.length > 2) {
+    errorDate.innerHTML = "Date saisi est validé.";
+    errorDate.style.color = "green";
+    errorDate.style.fontSize = "0.8rem";
   return true ;
   } else {
+    errorDate.innerHTML = "Veuillez saisir votre date de naissance.";
+    errorDate.style.color = "red";
+    errorDate.style.fontSize = "0.8rem";
     return false;
   }
 }
@@ -92,8 +110,14 @@ function checkBirthDate(value) {
 //Check validation for quantity
 function checkQuantity(value) {
   if(isNaN(value)|| value.length == 0) {
+    errorQuantity.innerHTML = "Veuillez saisir un nombre.";
+    errorQuantity.style.color = "red";
+    errorQuantity.style.fontSize = "0.8rem";
     return false;
   } else {
+    errorQuantity.innerHTML = "Le nombre est correct.";
+    errorQuantity.style.color = "green";
+    errorQuantity.style.fontSize = "0.8rem";
     return true;
   }
 }
@@ -112,9 +136,14 @@ function checkCity(elements) {
 //Check validation cgu
 function okCheckbox(element) {
     if(!element.checked) {
+      errorCgu.innerHTML = "Veuillez accepter les thermes du contrat ";
+      errorCgu.style.color = "red";
+      errorCgu.style.fontSize = "0.8rem"; 
       return false;
     } else {
-      errorCgu.innerHTML = "";
+      errorCgu.innerHTML = "Thermes du contrat accepter.";
+      errorCgu.style.color = "green";
+      errorCgu.style.fontSize = "0.8rem"; 
       return true;
     }
 }
@@ -123,25 +152,6 @@ function okCheckbox(element) {
 formModal.addEventListener("submit", event => {
   event.preventDefault();
   resetError();
-  if(!checkFirstName(firstName.value)) {
-    errorFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
-    errorFirst.style.color = "red";
-    errorFirst.style.fontSize = "0.8rem";
-  } else {
-    errorFirst.innerHTML = "Votre prénom est valide.";
-    errorFirst.style.color = "green";
-    errorFirst.style.fontSize = "0.8rem";
-  }
-
-  if(!checkLastName(lastName.value)) {
-    errorLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
-    errorLast.style.color = "red";
-    errorLast.style.fontSize = "0.8rem";
-  } else {
-    errorLast.innerHTML = "Votre nom est valide.";
-    errorLast.style.color = "green";
-    errorLast.style.fontSize = "0.8rem";
-  }
 
   if(!checkEmail(email.value)) {
     errorEmail.innerHTML = "Veuillez saisir une adresse mail valide.";
@@ -153,26 +163,6 @@ formModal.addEventListener("submit", event => {
     errorEmail.style.fontSize = "0.8rem";
   }
 
-  if(!checkBirthDate(birthdate.value)) {
-    errorDate.innerHTML = "Veuillez saisir votre date de naissance.";
-    errorDate.style.color = "red";
-    errorDate.style.fontSize = "0.8rem";
-  } else {
-    errorDate.innerHTML = "Date saisi est validé.";
-    errorDate.style.color = "green";
-    errorDate.style.fontSize = "0.8rem";
-  }
-
-  if(!checkQuantity(quantity.value)) {
-    errorQuantity.innerHTML = "Veuillez saisir un nombre.";
-    errorQuantity.style.color = "red";
-    errorQuantity.style.fontSize = "0.8rem";
-  } else {
-    errorQuantity.innerHTML = "Le nombre est correct.";
-    errorQuantity.style.color = "green";
-    errorQuantity.style.fontSize = "0.8rem";
-  }
-
   if(!checkCity(city)) {
     errorCity.innerHTML = "Veuillez selectionner une ville.";
     errorCity.style.color = "red";
@@ -181,15 +171,5 @@ formModal.addEventListener("submit", event => {
     errorCity.innerHTML = "Votre ville est correct.";
     errorCity.style.color = "green";
     errorCity.style.fontSize = "0.8rem";
-  }
-
-  if(!okCheckbox(checkbox1)) {
-    errorCgu.innerHTML = "Veuillez accepter les thermes du contrat ";
-    errorCgu.style.color = "red";
-    errorCgu.style.fontSize = "0.8rem";    
-  } else {
-    errorCgu.innerHTML = "Thermes du contrat accepter.";
-    errorCgu.style.color = "green";
-    errorCgu.style.fontSize = "0.8rem"; 
   }
 });
