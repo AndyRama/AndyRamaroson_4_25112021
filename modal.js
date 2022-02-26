@@ -47,79 +47,63 @@ const errorCgu = document.querySelector(".errorCgu");
 formModal.addEventListener("submit", event => {
   event.preventDefault();
 
+  //Functions stored inside a variable with arguments inside
+  let firstN = validateString(first.value, 2, errorFirst,"Veuillez entrer 2 caractères ou plus pour le champ du prenom.","Votre prénom est valide.");
+  let lastN = validateString(last.value, 2, errorLast, "Veuillez entrer 2 caractères ou plus pour le champ du nom.","Votre nom est valide.");
+  let mail = checkEmail(email.value, errorEmail, "Veuillez entre une adresse mail valide.", "Votre email est valide.");
+  let date = validateString(birthdate.value, 2, errorDate, "Vous devez entrer votre date de naissance.","Votre date de naissance.");
+  let qty = checkQuantity(quantity.value, errorQuantity,"Veuillez entrer une valeur numerique", "Votre nombre de tournois est valide.");
+  let town = checkCity(city, errorCity, "Veuillez saisir une ville", "Votre ville est accepté.");
+  let cgu = okCheckbox(checkbox1, errorCgu,"Vous devez vérifier que vous acceptez les termes et conditions.", "Merci d'avoir accepter les termes et conditions.");
+
+  // Functions Called Here  
+  //Close ModalBox and OPEN SuccesBox
+  //Close succesBox
+  //Reset the form
+
 });
 
-//Check validation for firstname[nb letters] > 2
-function checkFirstName(value, errorFirst) {
-  if(value && value.length > 2) {
-    errorFirst.innerHTML = "Votre prénom est valide.";
-    errorFirst.style.color = "green";
-    errorFirst.style.fontSize = "0.8rem";
+//Check validation for firstname/lastname$[nb letters] > 2
+function validateString(value, size, errorElt, errorMessage, validateMessage) {
+  if(value && value.length > size) {
+    errorElt.innerHTML = validateMessage;
+    errorElt.style.color = "green";
+    errorElt.style.fontSize = "0.8rem";
     return true;
   } else {
-    errorFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
-    errorFirst.style.color = "red";
-    errorFirst.style.fontSize = "0.8rem";
-    return false;
-  }
-}
-
-//Check validation for Lastname[nb letters] > 2
-function checkLastName(value, errorLast) {
-  if(value && value.length > 2) {
-    errorLast.innerHTML = "Votre nom est valide.";
-    errorLast.style.color = "green";
-    errorLast.style.fontSize = "0.8rem";
-    return true;
-  } else {
-    errorLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour votre prénom.";
-    errorLast.style.color = "red";
-    errorLast.style.fontSize = "0.8rem";
+    errorElt.innerHTML = errorMessage;
+    errorElt.style.color = "red";
+    errorElt.style.fontSize = "0.8rem";
     return false;
   }
 }
 
 //Check validation for Email [patern regex]
-function checkEmail(email, errorEmail){
+function checkEmail(email, errorEmail, errorMessage, validateMessage){
   let patern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if(!email.toLowerCase().match(patern) || email == "") {
-    errorEmail.innerHTML = "Veuillez saisir une adresse mail valide.";
+    errorEmail.innerHTML = errorMessage;
     errorEmail.style.color = "red";
     errorEmail.style.fontSize = "0.8rem";
     return false;
   } else {
-    errorEmail.innerHTML = "Email est bien accepté.";
+    errorEmail.innerHTML = validateMessage;
     errorEmail.style.color = "green";
     errorEmail.style.fontSize = "0.8rem";
     return true;
   }
 }
 
-//Check validation for Birthdate
-function checkBirthDate(value,errorDate) {
-  if(value && value.length > 2) {
-    errorDate.innerHTML = "Date saisi est validé.";
-    errorDate.style.color = "green";
-    errorDate.style.fontSize = "0.8rem";
-  return true ;
-  } else {
-    errorDate.innerHTML = "Veuillez saisir votre date de naissance.";
-    errorDate.style.color = "red";
-    errorDate.style.fontSize = "0.8rem";
-    return false;
-  }
-}
-
 //Check validation for quantity
-function checkQuantity(value, errorQuantity) {
+function checkQuantity(value, errorQuantity, errorMessage, validateMessage) {
   if(isNaN(value)|| value.length == 0) {
-    errorQuantity.innerHTML = "Veuillez saisir un nombre.";
+    errorQuantity.innerHTML = errorMessage;
     errorQuantity.style.color = "red";
     errorQuantity.style.fontSize = "0.8rem";
     return false;
   } else {
-    errorQuantity.innerHTML = "Le nombre est correct.";
+    errorQuantity.innerHTML = validateMessage;
     errorQuantity.style.color = "green";
     errorQuantity.style.fontSize = "0.8rem";
     return true;
@@ -127,18 +111,18 @@ function checkQuantity(value, errorQuantity) {
 }
 
 //Check validation for city 
-function checkCity(elements, errorCity) {
+function checkCity(elements, errorCity, errorMessage, validateMessage) {
   let checked = false;
   for (let i = 0; i < elements.length; i++) {
     if(elements[i].checked) {
       checked = true;
-      errorCity.innerHTML = "Veuillez selectionner une ville.";
-      errorCity.style.color = "red";
+      errorCity.innerHTML = validateMessage;
+      errorCity.style.color = "green";
       errorCity.style.fontSize = "0.8rem";
       return true
     } else {
-      errorCity.innerHTML = "Votre ville est correct.";
-      errorCity.style.color = "green";
+      errorCity.innerHTML = errorMessage;
+      errorCity.style.color = "red";
       errorCity.style.fontSize = "0.8rem";
       return false;
     }
@@ -146,14 +130,14 @@ function checkCity(elements, errorCity) {
 }
 
 //Check validation cgu
-function okCheckbox(element, errorCgu) {
+function okCheckbox(element, errorCgu, errorMessage, validateMessage) {
     if(!element.checked) {
-      errorCgu.innerHTML = "Veuillez accepter les thermes du contrat ";
+      errorCgu.innerHTML = errorMessage;
       errorCgu.style.color = "red";
       errorCgu.style.fontSize = "0.8rem"; 
       return false;
     } else {
-      errorCgu.innerHTML = "Thermes du contrat accepter.";
+      errorCgu.innerHTML = validateMessage;
       errorCgu.style.color = "green";
       errorCgu.style.fontSize = "0.8rem"; 
       return true;
