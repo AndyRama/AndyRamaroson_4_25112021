@@ -43,16 +43,11 @@ const errorQuantity = document.querySelector(".errorQuantity");
 const errorCity = document.querySelector(".errorCity");
 const errorCgu = document.querySelector(".errorCgu");
 
+//listen activity for form
+formModal.addEventListener("submit", event => {
+  event.preventDefault();
 
-function resetError() {
-  errorFirst.innerHTML = "";
-  errorLast.innerHTML = "";
-  errorEmail.innerHTML = "";
-  errorDate.innerHTML = "";
-  errorQuantity.innerHTML = "";
-  errorCity.innerHTML = "";
-  errorCgu.innerHTML = "";
-}
+});
 
 //Check validation for firstname[nb letters] > 2
 function checkFirstName(value, errorFirst) {
@@ -165,8 +160,3 @@ function okCheckbox(element, errorCgu) {
     }
 }
 
-//listen activity for form
-formModal.addEventListener("submit", event => {
-  event.preventDefault();
-  resetError();
-});
