@@ -31,6 +31,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
+const checkbox1 = document.getElementById("checkbox1");
 
 const city = document.getElementsByName("location")
 
@@ -40,6 +41,7 @@ const errorEmail = document.querySelector(".errorEmail");
 const errorDate = document.querySelector(".errorDate");
 const errorQuantity = document.querySelector(".errorQuantity");
 const errorCity = document.querySelector(".errorCity");
+const errorCgu = document.querySelector(".errorCgu");
 
 
 function resetError() {
@@ -49,6 +51,7 @@ function resetError() {
   errorDate.innerHTML = "";
   errorQuantity.innerHTML = "";
   errorCity.innerHTML = "";
+  errorCgu.innerHTML = "";
 }
 
 //Check validation for firstname[nb letters] > 2
@@ -106,6 +109,15 @@ function checkCity(elements) {
   return checked;
 }
 
+//Check validation cgu
+function okCheckbox(element) {
+    if(!element.checked) {
+      return false;
+    } else {
+      errorCgu.innerHTML = "";
+      return true;
+    }
+}
 
 //listen activity for form
 formModal.addEventListener("submit", event => {
@@ -169,5 +181,15 @@ formModal.addEventListener("submit", event => {
     errorCity.innerHTML = "Votre ville est correct.";
     errorCity.style.color = "green";
     errorCity.style.fontSize = "0.8rem";
+  }
+
+  if(!okCheckbox(checkbox1)) {
+    errorCgu.innerHTML = "Veuillez accepter les thermes du contrat ";
+    errorCgu.style.color = "red";
+    errorCgu.style.fontSize = "0.8rem";    
+  } else {
+    errorCgu.innerHTML = "Thermes du contrat accepter.";
+    errorCgu.style.color = "green";
+    errorCgu.style.fontSize = "0.8rem"; 
   }
 });
