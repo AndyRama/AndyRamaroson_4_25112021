@@ -516,7 +516,11 @@ input[data-error]::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* display: none; */
+  display: none;
+}
+
+.logoMerci {
+  padding: 1rem;
 }
 
 .confirmation-body {
@@ -535,9 +539,9 @@ input[data-error]::after {
   border-radius: 0.7rem;
 }
 
-.confirmation-body p{
+.confirmation-body p {
   position: absolute;
-  top: 40%;
+  top: 25%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -545,8 +549,29 @@ input[data-error]::after {
   color: #fff;
 }
 
-.close-confirmation {}
-.close-btn {}
+.close-confirmation {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.3rem;
+  border: #fff;
+  color: #fff;
+  background-color: rgb(29, 28, 28);
+}
+
+.close-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  background-color: rgb(224, 20, 20);
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+}
 
 footer {
   padding-left: 2vw;
