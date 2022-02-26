@@ -131,16 +131,16 @@ function checkCity(elements, errorCity, errorMessage, validateMessage) {
 
 //Check validation cgu
 function okCheckbox(element, errorCgu, errorMessage, validateMessage) {
-    if(!element.checked) {
-      errorCgu.innerHTML = errorMessage;
-      errorCgu.style.color = "red";
-      errorCgu.style.fontSize = "0.8rem"; 
-      return false;
-    } else {
-      errorCgu.innerHTML = validateMessage;
-      errorCgu.style.color = "green";
-      errorCgu.style.fontSize = "0.8rem"; 
-      return true;
-    }
+  if(!element.checked) {
+    errorCgu.innerHTML = errorMessage;
+    errorCgu.style.color = "red";
+    errorCgu.style.fontSize = "0.8rem"; 
+    return false;
+  } else {
+    errorCgu.innerHTML = validateMessage;
+    errorCgu.style.color = "green";
+    errorCgu.style.fontSize = "0.8rem"; 
+    return true;
+  }
 }
 
