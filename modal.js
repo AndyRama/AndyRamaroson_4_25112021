@@ -85,12 +85,21 @@ function checkLastName(value) {
 }
 
 //Check validation for Email [patern regex]
-function checkEmail(value) {
-  return String(value)
-  .toLowerCase()
-  .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  )
-};
+function checkEmail(email, errorEmail){
+  let patern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if(!email.toLowerCase().match(patern) || email == "") {
+    errorEmail.innerHTML = "Veuillez saisir une adresse mail valide.";
+    errorEmail.style.color = "red";
+    errorEmail.style.fontSize = "0.8rem";
+    return false;
+  } else {
+    errorEmail.innerHTML = "Email est bien accepté.";
+    errorEmail.style.color = "green";
+    errorEmail.style.fontSize = "0.8rem";
+    return true;
+  }
+}
 
 //Check validation for Birthdate
 function checkBirthDate(value) {
@@ -128,9 +137,17 @@ function checkCity(elements) {
   for (let i = 0; i < elements.length; i++) {
     if(elements[i].checked) {
       checked = true;
+      errorCity.innerHTML = "Veuillez selectionner une ville.";
+      errorCity.style.color = "red";
+      errorCity.style.fontSize = "0.8rem";
+      return true
+    } else {
+      errorCity.innerHTML = "Votre ville est correct.";
+      errorCity.style.color = "green";
+      errorCity.style.fontSize = "0.8rem";
+      return false;
     }
   }
-  return checked;
 }
 
 //Check validation cgu
@@ -152,24 +169,4 @@ function okCheckbox(element) {
 formModal.addEventListener("submit", event => {
   event.preventDefault();
   resetError();
-
-  if(!checkEmail(email.value)) {
-    errorEmail.innerHTML = "Veuillez saisir une adresse mail valide.";
-    errorEmail.style.color = "red";
-    errorEmail.style.fontSize = "0.8rem";
-  } else {
-    errorEmail.innerHTML = "Email est bien accepté.";
-    errorEmail.style.color = "green";
-    errorEmail.style.fontSize = "0.8rem";
-  }
-
-  if(!checkCity(city)) {
-    errorCity.innerHTML = "Veuillez selectionner une ville.";
-    errorCity.style.color = "red";
-    errorCity.style.fontSize = "0.8rem";
-  } else {
-    errorCity.innerHTML = "Votre ville est correct.";
-    errorCity.style.color = "green";
-    errorCity.style.fontSize = "0.8rem";
-  }
 });
