@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <!-- langue -->
   <head>
     <meta charset="utf-8" />
     <title>GameOn</title>
-    <link rel="icon" type="images/png" href="favicon.png">
+    <!-- change title -->
+    <link rel="icon" type="images/png" href="/images/favicon.png">
     <!-- Add favicon -->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="modal.css" />
@@ -11,24 +13,28 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
-      <div class="header-logo">
-      <img alt="logo" src="Logo.png"/>
-      <!-- remove wight and height in HTML -->
-    </div>
-    <div class="main-navbar">      
-      <!-- remove btn Accueil --> 
-      <a href="#" class="active"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    <!-- remove </div> -->
-  </div>
+    <!--Navbar-->
+    <header>
+      <div class="topnav" id="myTopnav">
+        <div class="header-logo">
+          <img alt="logo" src="/images/Logo.png"/>
+          <!-- remove wight and height in HTML -->
+        </div>
+        <div class="main-navbar">            
+          <!-- remove btn Accueil --> 
+          <a href="#" class="active"><span>Détails de l'évènement</span></a>
+          <a href="#"><span>À propos</span></a>
+          <a href="#"><span>Contact</span></a>
+          <a href="#"><span>Évènements passés</span></a>
+          <a href="javascript:void(0);" class="icon" onclick="editNav()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+        <!-- remove </div> -->
+      </div>
+    </header>
     <main>
+      <!--Main banner-->
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
@@ -44,13 +50,14 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="/images/bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
       </div>
 
+      <!--Modal-->
       <div class="bground">
         <div class="content">
           <span class="close" id="closemodal"></span>
@@ -141,10 +148,11 @@
               <div class="formData">
                 <input class="checkbox-input" type="checkbox" name="checkbox1" id="checkbox1"/>
                 <!--  remove checked -->
-                <label class="checkbox2-label" id="checkbox1" for="checkbox1">
+                <label class="checkbox1-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
-                </label><br>
+                </label>
+                <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2"/>
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -163,15 +171,16 @@
       </div>
 
       <!--Succes Message Box-->
-      <div class="submit-confirmation-bg">
+      <div class="submit-confirmation-bg" id="confirmation-message">
         <div class="confirmation-body">
-          <button class="close-confirmation">&#10005;</button>
-          <p><img src="./Logo.png" alt="logo" class="logoMerci"><br>vous remercie  pour votre réservation.</p>
-          <button class="close-btn" value="Fermer">Fermer</button>
+          <button class="close-confirmation close-Succes" id="X-close">&#10005;</button>
+          <p><img src="/images/Logo.png" alt="logo" class="logoMerci"><br>"Merci ! Votre réservation a été reçue.</p>
+          <button class="close-btn close-Succes" id="close_button_succes" value="Fermer">Fermer</button>
         </div>
       </div>
     </main>
     
+    <!--Footer-->
     <footer>
       <p class="copyrights">
         Copyright 2014 - 2022, GameOn Inc.
