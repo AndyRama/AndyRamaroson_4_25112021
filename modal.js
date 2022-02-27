@@ -33,7 +33,7 @@ const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
 
-const city = document.getElementsByName("location")
+const city = document.getElementsByName("location");
 
 const errorFirst = document.querySelector(".errorFirst");
 const errorLast = document.querySelector(".errorLast");
@@ -63,7 +63,7 @@ formModal.addEventListener("submit", event => {
 
 });
 
-//Check validation for firstname/lastname$[nb letters] > 2
+//Check validation for firstname/lastname [nb letters] > 2
 function validateString(value, size, errorElt, errorMessage, validateMessage) {
   if(value && value.length > size) {
     errorElt.innerHTML = validateMessage;
@@ -128,6 +128,17 @@ function checkCity(elements, errorCity, errorMessage, validateMessage) {
     }
   }
 }
+
+// Check validation for city 
+// function checkCity(elements) {
+//   let checked = false;
+//   for (let i = 0; i < elements.length; i++) {
+//     if(elements[i].checked) {
+//       checked = true;
+//     }
+//   }
+//   return checked;
+// }
 
 //Check validation cgu
 function okCheckbox(element, errorCgu, errorMessage, validateMessage) {

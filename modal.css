@@ -36,11 +36,11 @@ img {
 } 
 
 .header-logo {
-    float: left;
+  float: left;
 }
 
 .main-navbar {
-    float: right;
+  float: right;
 }
 
 .topnav a {
@@ -52,19 +52,21 @@ img {
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;  
 }
 
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -92,8 +94,6 @@ img {
     text-align: left;
   }
 }
-
-
 
 @media screen and (max-width: 540px) {
   .topnav a {display: none;}
@@ -475,7 +475,8 @@ input[data-error]::after {
 
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
+  /* remove capitalize */
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;

@@ -1,5 +1,21 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+![alt text](https://github.com/AndyRama/AndyRamaroson_4_25112021/images/Logo.png?raw=true)
+
+# Projet GameOn AndyRamaroson_4_25112021
+https://andyrama.github.io/AndyRamaroson_4_25112021/
+
+<h2> GameOn website project </h2>
+This project is a first approach to JS. 
+I can use pure JavaScript (no jQuery) to complete the form.
+
+<h3>the objective is to resolve the various issues of the projects.</h3>
+<ul>
+  <li>Close modal, add functionality to button (x).</li>
+  <li>Implement form inputs, link labels to entries in HTML using "for" and "id" attributes in existing code. Correct the HTML when necessary.</li>
+  <li>The form must be valid when the user clicks "Submit", add validation or error messages. </li>
+  <li>Add confirmation when send successful </li>
+  <li>Visualize and test the user interface, as well as mobile and desktop versions. Fix existing display errors.</li>
+  <li>Test all functionality of buttons and form inputs (test correct and incorrect values).</li>
+  <li>to put in production.</li>
+</ul>
+
+
