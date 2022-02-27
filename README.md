@@ -1,13 +1,14 @@
-![alt text](https://github.com/AndyRama/AndyRamaroson_4_25112021/images/Logo.png?raw=true)
+<!-- ![alt text](https://github.com/AndyRama/AndyRamaroson_4_25112021/images/Logo.png?raw=true) -->
 
-# Projet GameOn AndyRamaroson_4_25112021
+# Projet GameOn 
+
 https://andyrama.github.io/AndyRamaroson_4_25112021/
 
 <h2> GameOn website project </h2>
 This project is a first approach to JS. 
 I can use pure JavaScript (no jQuery) to complete the form.
 
-<h3>the objective is to resolve the various issues of the projects.</h3>
+<h2>the objective is to resolve the various issues of the projects.</h2>
 <ul>
   <li>Close modal, add functionality to button (x).</li>
   <li>Implement form inputs, link labels to entries in HTML using "for" and "id" attributes in existing code. Correct the HTML when necessary.</li>
