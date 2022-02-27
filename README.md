@@ -8,7 +8,7 @@ https://andyrama.github.io/AndyRamaroson_4_25112021/
 This project is a first approach to JS. 
 I can use pure JavaScript (no jQuery) to complete the form.
 
-<h2>the objective is to resolve the various issues of the projects.</h2>
+<h2>Resolve the various issues of the projects.</h2>
 <ul>
   <li>Close modal, add functionality to button (x).</li>
   <li>Implement form inputs, link labels to entries in HTML using "for" and "id" attributes in existing code. Correct the HTML when necessary.</li>
