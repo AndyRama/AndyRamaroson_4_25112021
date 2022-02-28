@@ -20,7 +20,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click",()=> {
 
 //Close modal 
 closeModal.forEach((btn) => btn.addEventListener("click", () => {
-  modalbg.style.display = " none"
+  modalbg.style.display = " none";
 }));
 
 //DOM elements (Global Variables)
