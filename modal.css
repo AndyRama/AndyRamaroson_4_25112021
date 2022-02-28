@@ -73,6 +73,24 @@ img {
   display: none;
 }
 
+@media screen and (max-width: 944px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 801px) {
+
+  h1.hero-headline {
+  font-size: 5vw;
+  font-weight: normal;
+  width: 43vw;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -88,6 +106,7 @@ img {
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -96,16 +115,39 @@ img {
 }
 
 @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {display: none;
+  }
+
+  h1.hero-headline {
+    font-size: 2rem;
+    font-weight: bold;
+    width: auto;
+    margin-top: -1rem;
+    /* margin-bottom: 1rem; */
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* margin-top:-15px; */
+  }
+
+  p.hero-text  {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    margin-bottom: -20px;
+  }
+
+  img {
+    height: 20px;
+    width: 100px;
+    margin-top: 20px;
+    /* margin-left: 15px; */
   }
 } 
 
 main {
-  font-size: 130%;
+  /* font-size: 130%; */
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
@@ -139,7 +181,6 @@ main {
 }
 
 /* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -426,11 +467,11 @@ input[data-error]::after {
 }
 
 .hero-section {
-  min-height: 93vh;
+  /* min-height: 93vh; */
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
+  /* overflow: hidden; */
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
@@ -574,7 +615,6 @@ input[data-error]::after {
   font-weight: bold;
 }
 
-
 @media screen and (max-width: 539px) {
   .bground {
     display: none;
@@ -587,7 +627,8 @@ input[data-error]::after {
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.4) !important;
   }
-  .submbit-confirmation-bg{
+  
+  .submit-confirmation-bg{
     position: fixed;
     top: 3.5rem;
     left: 0;
@@ -599,7 +640,24 @@ input[data-error]::after {
     justify-content: center;
     z-index: 1;
     display: none;
-    }
+  }
+
+  .confirmation-body {
+    background-color: rgb(24, 23, 23);
+    height: 85vh;
+    width: 100%;
+    position: fixed;
+    top: 0rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+  }
 }
 
 footer {
