@@ -62,7 +62,7 @@ document.getElementById('form-modal').addEventListener("submit", event => {
   let cgu = okCheckbox(checkbox1, errorCgu,"Vous devez vérifier que vous acceptez les termes et conditions.", "Merci d'avoir accepter les termes et conditions.");
 
   // Functions Called Here    
-  if(firstN && lastN && mail && date && qty && town && cgu){
+  if(firstN && lastN && mail && date && qty && town && cgu) {
     //Close ModalBox and OPEN SuccesBox
     const modalBox = document.querySelector(".bground");
     const succesMessageBox = document.querySelector(".submit-confirmation-bg");

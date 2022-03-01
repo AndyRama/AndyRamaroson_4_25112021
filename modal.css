@@ -74,7 +74,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 944px) {
+/* @media screen and (max-width: 944px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -84,7 +84,7 @@ img {
   .topnav a.icon:hover  {
     color:white;
   }
-}
+} */
 
 @media screen and (min-width: 801px) {
 
@@ -517,7 +517,7 @@ input[data-error]::after {
 }
 
 .hero-text {
-  width: 146%;
+  width: 120%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -577,7 +577,7 @@ input[data-error]::after {
 .confirmation-body {
   background-color: rgb(35, 35, 35);
   height: 60vh;
-  width: 35vw;
+  width: 60vw;
   position: fixed;
   left: 0;
   right: 0;
@@ -611,6 +611,10 @@ input[data-error]::after {
   background-color: rgb(29, 28, 28);
 }
 
+.close-confirmation:hover{
+  color: #afa6a6;
+}
+
 .close-btn {
   position: absolute;
   bottom: 1rem;
@@ -623,6 +627,10 @@ input[data-error]::after {
   border: 0;
   color: #fff;
   font-weight: bold;
+}
+
+.close-btn:hover{
+  background-color: rgb(216, 49, 49);
 }
 
 @media screen and (max-width: 620px) {
@@ -666,7 +674,7 @@ input[data-error]::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 0 0;
   }
 
   h1.hero-headline {
