@@ -16,6 +16,7 @@ const closeModal = document.querySelectorAll(".close");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click",()=> {
   modalbg.style.display = "block";
+  body.classList.add('no-scroll');
 }));
 
 //Close modal 
