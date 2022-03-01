@@ -33,6 +33,7 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
+const succeMessageBox = document.getElementById(".confirmation-message");
 
 const city = document.getElementsByName("location");
 
@@ -43,9 +44,12 @@ const errorDate = document.querySelector(".errorDate");
 const errorQuantity = document.querySelector(".errorQuantity");
 const errorCity = document.querySelector(".errorCity");
 const errorCgu = document.querySelector(".errorCgu");
+const body = document.querySelector('body');
+
+const succesMessage = document.getElementById('confirmation-message');
 
 //listen activity for form
-formModal.addEventListener("submit", event => {
+document.getElementById('form-modal').addEventListener("submit", event => {
   event.preventDefault();
 
   //Functions stored inside a variable with arguments inside
@@ -57,12 +61,36 @@ formModal.addEventListener("submit", event => {
   let town = checkCity(city, errorCity, "Veuillez saisir une ville", "Votre ville est accepté.");
   let cgu = okCheckbox(checkbox1, errorCgu,"Vous devez vérifier que vous acceptez les termes et conditions.", "Merci d'avoir accepter les termes et conditions.");
 
-  // Functions Called Here  
-  //Close ModalBox and OPEN SuccesBox
-  //Close succesBox
-  //Reset the form
-
+  // Functions Called Here    
+  if(firstN && lastN && mail && date && qty && town && cgu){
+    //Close ModalBox and OPEN SuccesBox
+    const modalBox = document.querySelector(".bground");
+    const succesMessageBox = document.querySelector(".submit-confirmation-bg");
+      modalBox.style.display = "none";
+      succesMessageBox.style.display = "block";  
+      //Close succesBox
+      document.querySelectorAll('.close-Succes').forEach(button =>{
+      button.addEventListener('click', button => {
+      if (succesMessage.style.display === "block"){
+            succesMessage.style.display = 'none';
+      }})});
+      //Reset the form  
+      document.getElementById('form-modal').reset();
+      //Reset the message error  
+      resetError();
+    }
+    return true
 });
+
+function resetError() {
+  errorFirst.innerHTML = "";
+  errorLast.innerHTML = "";
+  errorEmail.innerHTML = "";
+  errorDate.innerHTML = "";
+  errorQuantity.innerHTML = "";
+  errorCity.innerHTML = "";
+  errorCgu.innerHTML = "";
+}
 
 //Check validation for firstname/lastname [nb letters] > 2
 function validateString(value, size, errorElt, errorMessage, validateMessage) {
