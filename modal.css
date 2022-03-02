@@ -577,7 +577,7 @@ input[data-error]::after {
 .confirmation-body {
   background-color: rgb(35, 35, 35);
   height: 60vh;
-  width: 60vw;
+  width: 50vw;
   position: fixed;
   left: 0;
   right: 0;

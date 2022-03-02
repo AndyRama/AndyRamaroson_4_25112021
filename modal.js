@@ -92,7 +92,7 @@ function resetError() {
   errorCgu.innerHTML = "";
 }
 
-//Check validation for firstname/lastname [nb letters] > 2
+//Check validation for firstname/lastname/birthdate [nb letters] > 2
 function validateString(value, size, errorElt, errorMessage, validateMessage) {
   if(value && value.length > size) {
     errorElt.innerHTML = validateMessage;
@@ -106,6 +106,15 @@ function validateString(value, size, errorElt, errorMessage, validateMessage) {
     return false;
   }
 }
+
+//Check validation Birthdate
+// function checkBirthDate(value) {
+//   if(value && value.length > 2) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
 //Check validation for Email [patern regex]
 function checkEmail(email, errorEmail, errorMessage, validateMessage){
