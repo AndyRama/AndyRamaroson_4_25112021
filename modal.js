@@ -52,8 +52,8 @@ document.getElementById('form-modal').addEventListener("submit", (e) => {
   e.preventDefault();
 
   //Functions stored inside a variable with arguments inside
-  let firstN = validateString(first.value, 2, errorFirst,"Veuillez entrer 2 caractères ou plus pour le prenom.","Votre prénom est valide.");
-  let lastN = validateString(last.value, 2, errorLast, "Veuillez entrer 2 caractères ou plus pour le nom.","Votre nom est valide.");
+  let firstN = checkFirstName(first.value, 2, errorFirst,"Veuillez entrer 2 caractères ou plus pour le prenom.","Votre prénom est valide.");
+  let lastN = checkLastName(last.value, 2, errorLast, "Veuillez entrer 2 caractères ou plus pour le nom.","Votre nom est valide.");
   let mail = checkEmail(email.value, errorEmail, "Veuillez entre une adresse mail valide.", "Votre email est valide.");
   let date = checkBirthDate(birthdate.value, errorDate, "Vous devez entrer votre date de naissance.","Votre date de naissance.");
   let qty = checkQuantity(quantity.value, errorQuantity,"Veuillez entrer une valeur numerique", "Votre nombre de tournois est valide.");
@@ -77,6 +77,7 @@ document.getElementById('form-modal').addEventListener("submit", (e) => {
       document.getElementById('form-modal').reset();
       //Reset the message error  
       resetError();
+      resetBorder();
     }
     return true
 });
@@ -92,17 +93,47 @@ function resetError() {
   errorCgu.innerHTML = "";
 }
 
-//Check validation for firstname/lastname[nb letters] > 2
-function validateString(value, size, errorElt, errorMessage, validateMessage) {
+//Reset form field message validation
+function resetBorder() {
+  first.style.border = "";
+  last.style.border = "";
+  email.style.border = "";
+  birthdate.style.border = "";
+  quantity.style.border = "";
+}
+
+//Check validation for firstname[nb letters] > 2
+function checkFirstName(value, size, errorFirst, errorMessage, validateMessage) {
+
   if(value && value.length > size) {
-    errorElt.innerHTML = validateMessage;
-    errorElt.style.color = "#279E7A";
-    errorElt.style.fontSize = "0.8rem";
+    errorFirst.innerHTML = validateMessage;
+    errorFirst.style.color = "#279E7A";
+    errorFirst.style.fontSize = "0.8rem";
+    first.style.border = "2px #279E7A solid ";
     return true;
   } else {
-    errorElt.innerHTML = errorMessage;
-    errorElt.style.color = "#FF4E60";
-    errorElt.style.fontSize = "0.8rem";
+    errorFirst.innerHTML = errorMessage;
+    errorFirst.style.color = "#FF4E60";
+    errorFirst.style.fontSize = "0.8rem";
+    first.style.border = "2px #FF4E60 solid ";
+    return false;
+  }
+}
+
+//Check validation for lastname[nb letters] > 2
+function checkLastName(value, size, errorLast, errorMessage, validateMessage) {
+
+  if(value && value.length > size) {
+    errorLast.innerHTML = validateMessage;
+    errorLast.style.color = "#279E7A";
+    errorLast.style.fontSize = "0.8rem";
+    last.style.border = "2px #279E7A solid ";
+    return true;
+  } else {
+    errorLast.innerHTML = errorMessage;
+    errorLast.style.color = "#FF4E60";
+    errorLast.style.fontSize = "0.8rem";
+    last.style.border = "2px #FF4E60 solid ";
     return false;
   }
 }
@@ -115,11 +146,13 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
     errorDate.innerHTML = validateMessage;
     errorDate.style.color = "#279E7A";
     errorDate.style.fontSize = "0.8rem";
+    birthdate.style.border = "2px #279E7A solid ";
     return true;
   } else {
     errorDate.innerHTML = errorMessage;
     errorDate.style.color = "#FF4E60";
     errorDate.style.fontSize = "0.8rem";
+    birthdate.style.border = "2px #FF4E60 solid ";
     return false;
   }
 }
@@ -127,16 +160,19 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
 //Check validation for Email [patern regex]
 function checkEmail(email, errorEmail, errorMessage, validateMessage){
   let patern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+  let Email = document.getElementById("email");
+  
   if(!email.toLowerCase().match(patern) || email == "") {
     errorEmail.innerHTML = errorMessage;
     errorEmail.style.color = "#FF4E60";
     errorEmail.style.fontSize = "0.8rem";
+    Email.style.border = "2px #FF4E60 solid"; 
     return false;
   } else {
     errorEmail.innerHTML = validateMessage;
     errorEmail.style.color = "#279E7A";
     errorEmail.style.fontSize = "0.8rem";
+    Email.style.border = "2px  #279E7A solid";  
     return true;
   }
 }
@@ -147,11 +183,13 @@ function checkQuantity(value, errorQuantity, errorMessage, validateMessage) {
     errorQuantity.innerHTML = errorMessage;
     errorQuantity.style.color = "#FF4E60";
     errorQuantity.style.fontSize = "0.8rem";
+    quantity.style.border = "2px #FF4E60 solid";
     return false;
   } else {
     errorQuantity.innerHTML = validateMessage;
     errorQuantity.style.color = "#279E7A";
     errorQuantity.style.fontSize = "0.8rem";
+    quantity.style.border = "2px #279E7A solid";      
     return true;
   }
 }
