@@ -52,8 +52,8 @@ document.getElementById('form-modal').addEventListener("submit", (e) => {
   e.preventDefault();
 
   //Functions stored inside a variable with arguments inside
-  let firstN = checkFirstName(first.value, 2, errorFirst,"Veuillez entrer 2 caractères ou plus pour le prenom.","Votre prénom est valide.");
-  let lastN = checkLastName(last.value, 2, errorLast, "Veuillez entrer 2 caractères ou plus pour le nom.","Votre nom est valide.");
+  let firstN = checkFirstName(first.value, 2, errorFirst,"Veuillez entrer plus de 2 caractères.","Votre prénom est valide.");
+  let lastN = checkLastName(last.value, 2, errorLast, "Veuillez entrer plus de 2 caractères.","Votre nom est valide.");
   let mail = checkEmail(email.value, errorEmail, "Veuillez entre une adresse mail valide.", "Votre email est valide.");
   let date = checkBirthDate(birthdate.value, errorDate, "Vous devez entrer votre date de naissance.","Votre date de naissance.");
   let qty = checkQuantity(quantity.value, errorQuantity,"Veuillez entrer une valeur numerique", "Votre nombre de tournois est valide.");
@@ -75,8 +75,9 @@ document.getElementById('form-modal').addEventListener("submit", (e) => {
       }})});
       //Reset the form  
       document.getElementById('form-modal').reset();
-      //Reset the message error  
+      //Reset the message validation  
       resetError();
+      // Reset border form field validation
       resetBorder();
     }
     return true
@@ -93,7 +94,7 @@ function resetError() {
   errorCgu.innerHTML = "";
 }
 
-//Reset form field message validation
+//Reset border form field validation
 function resetBorder() {
   first.style.border = "";
   last.style.border = "";
@@ -104,41 +105,39 @@ function resetBorder() {
 
 //Check validation for firstname[nb letters] > 2
 function checkFirstName(value, size, errorFirst, errorMessage, validateMessage) {
-
   if(value && value.length > size) {
     errorFirst.innerHTML = validateMessage;
     errorFirst.style.color = "#279E7A";
     errorFirst.style.fontSize = "0.8rem";
-    first.style.border = "2px #279E7A solid ";
+    first.style.border = "2px solid #279E7A";
     return true;
   } else {
     errorFirst.innerHTML = errorMessage;
     errorFirst.style.color = "#FF4E60";
     errorFirst.style.fontSize = "0.8rem";
-    first.style.border = "2px #FF4E60 solid ";
+    first.style.border = "2px solid #FF4E60";
     return false;
   }
 }
 
 //Check validation for lastname[nb letters] > 2
 function checkLastName(value, size, errorLast, errorMessage, validateMessage) {
-
   if(value && value.length > size) {
     errorLast.innerHTML = validateMessage;
     errorLast.style.color = "#279E7A";
     errorLast.style.fontSize = "0.8rem";
-    last.style.border = "2px #279E7A solid ";
+    last.style.border = "2px solid #279E7A";
     return true;
   } else {
     errorLast.innerHTML = errorMessage;
     errorLast.style.color = "#FF4E60";
     errorLast.style.fontSize = "0.8rem";
-    last.style.border = "2px #FF4E60 solid ";
+    last.style.border = "2px solid #FF4E60";
     return false;
   }
 }
 
-// Check validation Birthdate
+// Check validation Birthdate[patern regexDateFr ]
 function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
   const regexDateFr = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -146,13 +145,13 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
     errorDate.innerHTML = validateMessage;
     errorDate.style.color = "#279E7A";
     errorDate.style.fontSize = "0.8rem";
-    birthdate.style.border = "2px #279E7A solid ";
+    birthdate.style.border = "2px solid #279E7A";
     return true;
   } else {
     errorDate.innerHTML = errorMessage;
     errorDate.style.color = "#FF4E60";
     errorDate.style.fontSize = "0.8rem";
-    birthdate.style.border = "2px #FF4E60 solid ";
+    birthdate.style.border = "2px solid #FF4E60";
     return false;
   }
 }
@@ -166,37 +165,38 @@ function checkEmail(email, errorEmail, errorMessage, validateMessage){
     errorEmail.innerHTML = errorMessage;
     errorEmail.style.color = "#FF4E60";
     errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px #FF4E60 solid"; 
+    Email.style.border = "2px solid #FF4E60"; 
     return false;
   } else {
     errorEmail.innerHTML = validateMessage;
     errorEmail.style.color = "#279E7A";
     errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px  #279E7A solid";  
+    Email.style.border = "2px solid #279E7A";  
     return true;
   }
 }
 
 //Check validation for quantity
 function checkQuantity(value, errorQuantity, errorMessage, validateMessage) {
-  if(isNaN(value)|| value.length == 0) {
+  if(isNaN(value) || value.length == 0) {
     errorQuantity.innerHTML = errorMessage;
     errorQuantity.style.color = "#FF4E60";
     errorQuantity.style.fontSize = "0.8rem";
-    quantity.style.border = "2px #FF4E60 solid";
+    quantity.style.border = "2px solid #FF4E60";
     return false;
   } else {
     errorQuantity.innerHTML = validateMessage;
     errorQuantity.style.color = "#279E7A";
     errorQuantity.style.fontSize = "0.8rem";
-    quantity.style.border = "2px #279E7A solid";      
+    quantity.style.border = "2px solid #279E7A";      
     return true;
-  }
+  };
 }
 
 //Check validation for city 
 function checkCity(elements, errorCity, errorMessage, validateMessage) {
   let checked = false;
+
   for (let i = 0; i < elements.length; i++) {
     if(elements[i].checked) {
       checked = true;

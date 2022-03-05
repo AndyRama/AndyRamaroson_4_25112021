@@ -3,13 +3,14 @@
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
+/* Landing Page */
 body {
   margin: 0;
   display: flex;
@@ -47,7 +48,7 @@ img {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #000;
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -57,14 +58,14 @@ img {
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
+  background-color: #FF001B;
   color: #ffffff;
   border-radius: 15px;
   text-decoration: underline;
 }
 
 .topnav a.active {
-  background-color: #ff0000;
+  background-color: #FF001B;
   color: #ffffff;
   border-radius: 15px;
   text-decoration: underline;
@@ -72,7 +73,6 @@ img {
 
 .topnav .icon {
   display: none;
-  /* background-color: white; */
 }
 
 main {
@@ -203,6 +203,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -314,7 +315,7 @@ input[data-error]::after {
   background: #fe142f;
   display: block;
   margin: 0 auto;
-  border-radius: 7px;
+  border-radius: 8px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
@@ -438,7 +439,7 @@ input[data-error]::after {
 }
 
 .hero-text {
-  width: 120%;
+  width: 156%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -561,16 +562,16 @@ footer {
 }
 
 @media screen and (max-width: 1034px) {
-   /* h1.hero-headline {
+   h1.hero-headline {
     font-weight: bold;
     margin-left: -1rem;
-    font-size: 34px;
+    font-size: 6rem;
     margin-top: -1rem;
-  } */
+  }
   
   p.hero-text  {
     margin-top: 20px;
-    font-size: 0.8rem;
+    font-size: 1.8rem;
     margin-bottom: -20px;
   }
 
@@ -598,7 +599,7 @@ footer {
   }
 
   .hero-text {
-    width: 185%;
+    width: 205%;
   }
 
   p.hero-text  {
@@ -645,22 +646,36 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 930px) {
   h1.hero-headline {
     font-weight: bold;
-    margin-left: -1rem;
-    font-size: 34px;
+    font-size: 5rem;
     margin-top: -1rem;
   }
 
   p.hero-text  {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    margin-bottom: -20px;
+    margin-left: -1rem;
+  }
+
+  .hero-text {
+    width: 198%;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 768px) {
+  .topnav {
+    margin: 2.5%;
+  } 
+
+  h1.hero-headline {
+    font-size: 4rem;
+  }
+
+  p.hero-text {
+    margin-left: -1.2rem;
+    width:176%;
+  }
+
   .bground {
     display: none;
     position: fixed;
@@ -703,41 +718,60 @@ footer {
     justify-content: center;
     border-radius: 10px 10px 0 0;
   }
-  
-  /* p.hero-text {
-    margin-left: -1.2rem;
-    width:115%;
-  } */
-
-  .topnav {
-    margin: 2.5%;
-  } 
 
   .copyrights {
-  font-size:10px;
-  margin-top: 20px !important;
-  margin-bottom: 30px;
+    font-size:10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 600px) {
   .topnav a {display: none;
   }
-
- 
 
   .topnav a.icon {
     float: right;
     display: block;
   }  
 
+  h1.hero-headline {
+    font-size: 3.5rem;
+  }
+
+  p.hero-text  {
+    width: 115%;
+    font-size: 1rem;
+  }
+
   img {
     height: 17px;
     width: 100px;
     margin-top: 20px;
-    /* margin-left: 15px; */
+    margin-left: 0.3rem;
   }
 } 
+
+@media screen and (max-width: 540px) {
+  .topnav a {display: none;
+  }
+
+  h1.hero-headline {
+    font-size: 2.2rem;
+  }
+
+  p.hero-text  {
+    font-size: 0.8rem;
+  }
+
+  .copyrights {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 2.8rem;
+    font-weight: 500;
+  }
+}
 
 @keyframes modalopen {
   from {
