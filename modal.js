@@ -33,7 +33,8 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
-const succeMessageBox = document.getElementById(".confirmation-message");
+const succeMessageBox = document.getElementById("confirmation-message");
+const succesMessage = document.getElementById('confirmation-message');
 
 const city = document.getElementsByName("location");
 
@@ -45,7 +46,6 @@ const errorQuantity = document.querySelector(".errorQuantity");
 const errorCity = document.querySelector(".errorCity");
 const errorCgu = document.querySelector(".errorCgu");
 
-const succesMessage = document.getElementById('confirmation-message');
 
 //listen activity for form
 document.getElementById('form-modal').addEventListener("submit", (e) => {
