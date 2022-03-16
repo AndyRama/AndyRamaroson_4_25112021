@@ -59,6 +59,7 @@ img {
   text-decoration: none;
   font-size: 18px;
   font-family: Roboto, sans-serif;
+  font-weight: 500;
 }
 
 .topnav a:hover:not(.icon) {
@@ -155,9 +156,9 @@ img {
     font-size: 1.2rem;
   }
   
-  #nav {
+  /* #nav {
     margin-left: -1rem!important;
-  }
+  } */
 }
 
 @media screen and (max-width: 800px) {
@@ -165,6 +166,11 @@ img {
     padding-left: 0!important;
   }
   
+  /* .confirmation-body {
+    height: 60vh!important;
+    width: 35vw!important;
+  } */
+
   .header-logo img {
     /* margin-left: -1.1rem; */
     height: 66px;
@@ -576,7 +582,7 @@ input {
 
 .hero-headline {
   font-size: 5vw;
-  font-weight: 500;
+  font-weight: 600;
   /* width: auto; */
   /* height: 240px; */
 }
@@ -640,8 +646,10 @@ input {
 
 .confirmation-body {
   background-color: rgb(24, 23, 23);
-  height: 60vh;
-  width: 35vw;
+  /* height: 60vh;
+  width: 35vw; */
+  height: 70vh;
+  width: 65vw;
   position: fixed;
   left: 0;
   right: 0;
@@ -764,6 +772,14 @@ input {
 }
 
 @media screen and (max-width: 539px) {
+  .hero-headline {
+    font-size: 2.1rem;
+  }
+
+  .hero-text {
+    font-size:12px;
+  }
+
   .bground {
     display: none;
     position: fixed;
