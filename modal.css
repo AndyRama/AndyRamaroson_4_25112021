@@ -91,9 +91,10 @@ img {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1029px) {
   .btn-signup {
-    margin-top: 2rem;
+    margin-bottom: 2rem!important;
+    margin-bottom: 2rem!important;
   }
   
   .hero-text {
@@ -307,8 +308,8 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   display: inline-block;
   margin-bottom: 11px;
 }
@@ -363,7 +364,7 @@ input {
   position: relative;
   margin-left: 36px;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: bold;
 }
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
@@ -540,8 +541,8 @@ input {
 
 /* custom select end */
 .text-label {
-  font-weight: normal;
-  font-size: 16px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .hero-section {
@@ -754,12 +755,12 @@ input {
 
   .hero-section > .btn-signup {
     display: block;
-    margin: 50px auto 10px;
+    margin: 20px auto 10px;
     padding: 12px 15px;
   }
 
   .copyrights {
-    margin-top: 10px;
+    margin-top: -10px;
     text-align: center;
   }
 }
@@ -774,6 +775,15 @@ input {
 @media screen and (max-width: 539px) {
   .hero-headline {
     font-size: 2.1rem;
+  }
+
+  #label {
+    font-size: 14px;
+    font-weight: bold;  
+  }
+
+  .btn-submit {
+    margin-top: 1rem;
   }
 
   .hero-text {
