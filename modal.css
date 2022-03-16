@@ -45,12 +45,12 @@ img {
 
 .main-navbar {
   float: right;
-  margin-right: 3rem;
-  margin-top: 0.4rem; 
+  margin-right: -1rem;
+  margin-top: 0.3rem; 
 }
 
 .topnav a {
-  float: right;
+  float: left;
   display: block;
   color: black;
   text-align: center;
@@ -90,6 +90,15 @@ img {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .btn-signup {
+    margin-top: 2rem;
+  }
+  
+  .hero-text {
+    margin-top: 2rem;
+  }
+}
 
 @media screen and (max-width: 944px) {
   /* .topnav a {display: none;}
@@ -102,8 +111,8 @@ img {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    /* right: -6px; */
+    top: 15px;
   }
 
   .topnav.responsive a {
@@ -117,6 +126,12 @@ img {
     display: block;
     color: red;
     font-size: 30px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    /* position: fixed;
+    top: 1.9rem;
+    right: 1rem; */
   }
   
   .header-logo img {
@@ -129,11 +144,32 @@ img {
     padding: 0.2rem;
     margin-top: 1rem;
   }
+  
+  .main-navbar {
+    margin-top: 1.3rem;
+    margin-right: 5rem;
+  }
+
+  .hero-text {
+    width: 197%;
+    font-size: 1.2rem;
+  }
+  
+  #nav {
+    margin-left: -1rem!important;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .hero-img {
     padding-left: 0!important;
+  }
+  
+  .header-logo img {
+    /* margin-left: -1.1rem; */
+    height: 66px;
+    width: 166px;
+    margin-top: 1rem;
   }
 }
   
@@ -161,6 +197,13 @@ img {
   }
 
 }  */
+/* @media screen and (min-width: 540px) {
+  h1.hero-headline {
+    font-size: 9vw;
+    font-weight: bold;
+    width: 60vw;
+  }
+} */
 
 main {
   /* font-size: 130%; */
@@ -534,12 +577,12 @@ input {
 .hero-headline {
   font-size: 5vw;
   font-weight: 500;
-  width: auto;
-  height: 240px;
+  /* width: auto; */
+  /* height: 240px; */
 }
 
 .hero-text {
-  width: 133%;
+  width: 120%;
   font-weight: 400;
   margin-top: 4rem;
   padding: 0;
@@ -659,8 +702,68 @@ input {
   text-align: center;
 }
 
-@media screen and (max-width: 539px) {
+@media screen and (max-width: 799px) {
+  .hero-section {
+    display: block;
+    box-shadow: unset;
+  }
 
+  .hero-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+  }
+
+  .hero-content::after {
+    content: unset;
+  }
+
+  .hero-content .btn-signup {
+    display: none;
+  }
+
+  .hero-headline {
+    font-size: 9.5vw;
+    margin-left: -1rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* text-align: center; */
+    /* width: none; */
+  }
+
+  .hero-text {
+    /* width: 100%; */
+    font-size: 3.1vw;
+    margin-left: -1rem;
+    /* margin-top: -2rem; */
+    /* text-align: center; */
+  }
+
+  .hero-img img {
+    border-radius: 10px;
+  }
+
+  .hero-section > .btn-signup {
+    display: block;
+    margin: 50px auto 10px;
+    padding: 12px 15px;
+  }
+
+  .copyrights {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .hero-headline {
+    font-size: 9.5vw;
+  }
+}
+
+@media screen and (max-width: 539px) {
   .bground {
     display: none;
     position: fixed;
@@ -703,60 +806,46 @@ input {
     justify-content: center;
     border-radius: 10px 10px 0 0;
   }
+
+  .hero-headerline {
+    height: 0px !important;
+  }
+
+  .topnav a.icon {
+    top: 1%;
+    right: 5%;
+    font-size: 20px;
+    position: absolute;
+  }
+
+  .topnav {
+    margin-top:0;
+  }
+
+  .header-logo img {
+    /* margin-left: -1.1rem; */
+    height: 48px;
+    width: 119px;
+    /* margin-top: 1rem; */
+  }
+
+  .hero-text {
+    margin-top: 1rem;
+  }
+
+  .header-logo img {
+    margin-top: 0.5rem;
+  }
+
+  .content {
+    margin:6% auto;
+  }
 }
 
 footer {
   /* padding-left: 2vw; */
   padding-right: 2vw;
   margin: 0 10px;
-}
-
-@media screen and (max-width: 800px) {
-  .hero-section {
-    display: block;
-    box-shadow: unset;
-  }
-
-  .hero-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
-  }
-
-  .hero-content::after {
-    content: unset;
-  }
-
-  .hero-content .btn-signup {
-    display: none;
-  }
-
-  .hero-headline {
-    font-size: 8.5vw;
-    margin-left: -1rem;
-  }
-
-  .hero-text {
-    width: 100%;
-    font-size: 3vw;
-    margin-left: -1rem;
-    /* text-align: center; */
-  }
-
-  .hero-img img {
-    border-radius: 10px;
-  }
-
-  .hero-section > .btn-signup {
-    display: block;
-    margin: 50px auto 10px;
-    padding: 12px 15px;
-  }
-
-  .copyrights {
-    margin-top: 10px;
-    text-align: center;
-  }
 }
 
 @keyframes modalopen {
