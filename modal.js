@@ -21,7 +21,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click",()=> {
 
 //Close modal 
 closeModal.forEach((btn) => btn.addEventListener("click", () => {
-  modalbg.style.display = " none";
+  modalbg.style.display = "none";
 }));
 
 //DOM elements (Global Variables)
@@ -33,6 +33,7 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
+
 const succeMessageBox = document.getElementById("confirmation-message");
 const succesMessage = document.getElementById('confirmation-message');
 
@@ -46,12 +47,11 @@ const errorQuantity = document.querySelector(".errorQuantity");
 const errorCity = document.querySelector(".errorCity");
 const errorCgu = document.querySelector(".errorCgu");
 
-
 //listen activity for form
 document.getElementById('form-modal').addEventListener("submit", (e) => {
   e.preventDefault();
 
-  //Functions stored inside a variable with arguments inside
+   //Functions stored inside a variable with arguments inside
   let firstN = checkFirstName(first.value, 2, errorFirst,"Veuillez entrer plus de 2 caractères.","Votre prénom est valide.");
   let lastN = checkLastName(last.value, 2, errorLast, "Veuillez entrer plus de 2 caractères.","Votre nom est valide.");
   let mail = checkEmail(email.value, errorEmail, "Veuillez entre une adresse mail valide.", "Votre email est valide.");
@@ -71,14 +71,15 @@ document.getElementById('form-modal').addEventListener("submit", (e) => {
       document.querySelectorAll('.close-Succes').forEach(button => {
       button.addEventListener('click', button => {
       if (succesMessage.style.display === "block"){
-            succesMessage.style.display = 'none';
+          succesMessage.style.display = 'none';
       }})});
       //Reset the form  
       document.getElementById('form-modal').reset();
       //Reset the message validation  
       resetError();
-      // Reset border form field validation
+      //Reset border form field validation
       resetBorder();
+      //Form clean
     }
     return true
 });
@@ -137,9 +138,29 @@ function checkLastName(value, size, errorLast, errorMessage, validateMessage) {
   }
 }
 
-// Check validation Birthdate[patern regexDateFr ]
+//Check validation for Email [pattern regex]
+function checkEmail(email, errorEmail, errorMessage, validateMessage) {
+  let pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let Email = document.getElementById("email");
+  
+  if(!email.toLowerCase().match(pattern) || email == "") {
+    errorEmail.innerHTML = errorMessage;
+    errorEmail.style.color = "#FF4E60";
+    errorEmail.style.fontSize = "0.8rem";
+    Email.style.border = "2px solid #FF4E60"; 
+    return false;
+  } else {
+    errorEmail.innerHTML = validateMessage;
+    errorEmail.style.color = "#279E7A";
+    errorEmail.style.fontSize = "0.8rem";
+    Email.style.border = "2px solid #279E7A";  
+    return true;
+  }
+}
+
+// Check validation Birthdate[pattern regexDateFr ]
 function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
-  const regexDateFr = /^\d{4}-\d{2}-\d{2}$/;
+  const regexDateFr = /^\d{4}-\d{2}-\d{2}$/; //pattern = d{yyyy}-d{mm}-d{dd}
 
   if(value && value.length > 2 && value.match(regexDateFr))  {
     errorDate.innerHTML = validateMessage;
@@ -156,25 +177,6 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
   }
 }
 
-//Check validation for Email [patern regex]
-function checkEmail(email, errorEmail, errorMessage, validateMessage){
-  let patern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  let Email = document.getElementById("email");
-  
-  if(!email.toLowerCase().match(patern) || email == "") {
-    errorEmail.innerHTML = errorMessage;
-    errorEmail.style.color = "#FF4E60";
-    errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px solid #FF4E60"; 
-    return false;
-  } else {
-    errorEmail.innerHTML = validateMessage;
-    errorEmail.style.color = "#279E7A";
-    errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px solid #279E7A";  
-    return true;
-  }
-}
 
 //Check validation for quantity
 function checkQuantity(value, errorQuantity, errorMessage, validateMessage) {
@@ -202,6 +204,7 @@ function checkCity(elements, errorCity, errorMessage, validateMessage) {
       checked = true;
     }
   }
+  
   if(checked){
     errorCity.innerHTML = validateMessage;
     errorCity.style.color = "#279E7A";

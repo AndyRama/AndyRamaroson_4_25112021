@@ -65,16 +65,13 @@ img {
 .topnav a:hover:not(.icon) {
   text-decoration: underline;
   background-color: #FE142F;
-  ;
   color: white;
   border-radius: 8px;
 }
 
 .topnav a.active {
   text-decoration: underline;
-  border-bottom: 2px solid white;
   background-color: #FE142F;
-  ;
   color: #ffffff;
   border-radius: 8px;
   font-weight: 500;
@@ -224,7 +221,7 @@ main {
   font-size: 16px;
 }
 
-.errorStyle {
+/* .errorStyle {
   color: #ff4e60;
   font-size: 10px;
   font-weight: normal;
@@ -232,7 +229,7 @@ main {
 
 .errorForm {
   border: 2px solid #ff4e60;
-}
+} */
 
 .bground {
   display: none;
