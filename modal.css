@@ -221,15 +221,25 @@ main {
   font-size: 16px;
 }
 
-/* .errorStyle {
-  color: #ff4e60;
-  font-size: 10px;
-  font-weight: normal;
+.errorStyle {
+  color: #FF4E60;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .errorForm {
-  border: 2px solid #ff4e60;
-} */
+  border: 2px solid #FF4E60;
+}
+
+.validStyle {
+  color: #279E7A;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.validForm {
+  border: 2px solid #279E7A;
+}
 
 .bground {
   display: none;

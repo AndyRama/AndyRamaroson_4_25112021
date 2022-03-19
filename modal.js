@@ -108,15 +108,13 @@ function resetBorder() {
 function checkFirstName(value, size, errorFirst, errorMessage, validateMessage) {
   if(value && value.length > size) {
     errorFirst.innerHTML = validateMessage;
-    errorFirst.style.color = "#279E7A";
-    errorFirst.style.fontSize = "0.8rem";
-    first.style.border = "2px solid #279E7A";
+    errorFirst.classList.add("validStyle");
+    first.classList.add("validForm");
     return true;
   } else {
     errorFirst.innerHTML = errorMessage;
-    errorFirst.style.color = "#FF4E60";
-    errorFirst.style.fontSize = "0.8rem";
-    first.style.border = "2px solid #FF4E60";
+    errorFirst.classList.add("errorStyle");
+    first.classList.add("errorForm");
     return false;
   }
 }
@@ -125,15 +123,13 @@ function checkFirstName(value, size, errorFirst, errorMessage, validateMessage) 
 function checkLastName(value, size, errorLast, errorMessage, validateMessage) {
   if(value && value.length > size) {
     errorLast.innerHTML = validateMessage;
-    errorLast.style.color = "#279E7A";
-    errorLast.style.fontSize = "0.8rem";
-    last.style.border = "2px solid #279E7A";
+    errorLast.classList.add("validStyle");
+    last.classList.add("validForm");
     return true;
   } else {
     errorLast.innerHTML = errorMessage;
-    errorLast.style.color = "#FF4E60";
-    errorLast.style.fontSize = "0.8rem";
-    last.style.border = "2px solid #FF4E60";
+    errorLast.classList.add("errorStyle");
+    last.classList.add("errorForm");
     return false;
   }
 }
@@ -145,15 +141,13 @@ function checkEmail(email, errorEmail, errorMessage, validateMessage) {
   
   if(!email.toLowerCase().match(pattern) || email == "") {
     errorEmail.innerHTML = errorMessage;
-    errorEmail.style.color = "#FF4E60";
-    errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px solid #FF4E60"; 
+    errorEmail.classList.add("errorStyle");
+    Email.classList.add("errorForm");
     return false;
   } else {
     errorEmail.innerHTML = validateMessage;
-    errorEmail.style.color = "#279E7A";
-    errorEmail.style.fontSize = "0.8rem";
-    Email.style.border = "2px solid #279E7A";  
+    errorEmail.classList.add("validStyle");
+    Email.classList.add("validForm");
     return true;
   }
 }
@@ -164,15 +158,13 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
 
   if(value && value.length > 2 && value.match(regexDateFr))  {
     errorDate.innerHTML = validateMessage;
-    errorDate.style.color = "#279E7A";
-    errorDate.style.fontSize = "0.8rem";
-    birthdate.style.border = "2px solid #279E7A";
+    errorDate.classList.add("validStyle");
+    birthdate.classList.add("validForm");
     return true;
   } else {
     errorDate.innerHTML = errorMessage;
-    errorDate.style.color = "#FF4E60";
-    errorDate.style.fontSize = "0.8rem";
-    birthdate.style.border = "2px solid #FF4E60";
+    errorDate.classList.add("errorStyle");
+    birthdate.classList.add("errorForm");
     return false;
   }
 }
@@ -182,15 +174,13 @@ function checkBirthDate(value, errorDate, errorMessage, validateMessage ) {
 function checkQuantity(value, errorQuantity, errorMessage, validateMessage) {
   if(isNaN(value) || value.length == 0) {
     errorQuantity.innerHTML = errorMessage;
-    errorQuantity.style.color = "#FF4E60";
-    errorQuantity.style.fontSize = "0.8rem";
-    quantity.style.border = "2px solid #FF4E60";
+    errorQuantity.classList.add("errorStyle");
+    quantity.classList.add("errorForm");
     return false;
   } else {
     errorQuantity.innerHTML = validateMessage;
-    errorQuantity.style.color = "#279E7A";
-    errorQuantity.style.fontSize = "0.8rem";
-    quantity.style.border = "2px solid #279E7A";      
+    errorQuantity.classList.add("validStyle");
+    quantity.classList.add("validForm");    
     return true;
   };
 }
@@ -207,13 +197,11 @@ function checkCity(elements, errorCity, errorMessage, validateMessage) {
   
   if(checked){
     errorCity.innerHTML = validateMessage;
-    errorCity.style.color = "#279E7A";
-    errorCity.style.fontSize = "0.8rem";
+    errorCity.classList.add("validStyle");
     return true;
   } else {
     errorCity.innerHTML = errorMessage;
-    errorCity.style.color = "#FF4E60";
-    errorCity.style.fontSize = "0.8rem";
+    errorCity.classList.add("errorStyle");
     return false;
   }
 }
@@ -222,13 +210,11 @@ function checkCity(elements, errorCity, errorMessage, validateMessage) {
 function okCheckbox(element, errorCgu, errorMessage, validateMessage) {
   if(!element.checked) {
     errorCgu.innerHTML = errorMessage;
-    errorCgu.style.color = "#FF4E60";
-    errorCgu.style.fontSize = "0.8rem"; 
+    errorCgu.classList.add("errorStyle");
     return false;
   } else {
     errorCgu.innerHTML = validateMessage;
-    errorCgu.style.color = "#279E7A";
-    errorCgu.style.fontSize = "0.8rem"; 
+    errorCgu.classList.add("validStyle");
     return true;
   }
 }
